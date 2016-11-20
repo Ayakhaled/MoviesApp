@@ -99,10 +99,6 @@ public class DetailedActivityFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Please wait...");
-            progressDialog.setCancelable(true);
-            progressDialog.show();
         }
 
         @Override
@@ -161,9 +157,6 @@ public class DetailedActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (progressDialog.isShowing())
-                progressDialog.dismiss();
-//
             trailersAdapter = new TrailersAdapter(trailers, getActivity());
             trailerRecyclerView.setAdapter(trailersAdapter);
         }
@@ -231,9 +224,6 @@ public class DetailedActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (progressDialog.isShowing())
-                progressDialog.dismiss();
-//
             reviewAdapter = new ReviewAdapter(reviews, getActivity());
             reviewRecyclerView.setAdapter(reviewAdapter);
         }

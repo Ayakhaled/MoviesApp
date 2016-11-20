@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/home/mai/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_f53b7a78df0ab44248530f8d07ce29d997d9a0e8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -18,6 +27,15 @@
         revision="24.0.3"
         sha1="a681c044244d9fc375198588297a39ba78028423">
         <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-1.9.0_d8ce1b1c6d98c2c9de9a442a49f144992ae6c917/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_201e6f91a13237c6ee0de66a32c68f06a6372ce9/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/mai/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.3.1_ae1dc14e21d3c6ed170810a99e07c3e8822b815d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -48,21 +75,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_8341e2035dd9bb0e558019eafffe70e6a23c729f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="b676d65709bd00f9245374aadf51b992f016d753">
+        sha1="03027550c4708638cdffd50ceaf3a021e0084b11">
         <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_26c9f8da5f0f68c82f943d88cb952cfe75b98e3f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0f15bb9ab3d4185dbc3f9f18236319859c3283ee/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -72,6 +99,15 @@
         revision="24.0.3"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
         <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_c303d0fe104850866371934a4600184a42d8a22d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0f15bb9ab3d4185dbc3f9f18236319859c3283ee/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,69 +129,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_e07abd1a10df4994b08379839f5db3193a66072c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_1ab9ce29cac87afd5051e995662c2f55912b0603/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5f89cafe247fb2bf6015866ce4d3483e27bdfd1a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_f53b7a78df0ab44248530f8d07ce29d997d9a0e8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_201e6f91a13237c6ee0de66a32c68f06a6372ce9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.3.1_ae1dc14e21d3c6ed170810a99e07c3e8822b815d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_8341e2035dd9bb0e558019eafffe70e6a23c729f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -174,12 +147,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_e07abd1a10df4994b08379839f5db3193a66072c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
         <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_f13c0466dc07846ab5ce4d8b61fe00fcbae15d9b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_1ab9ce29cac87afd5051e995662c2f55912b0603/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -196,8 +187,17 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="bd413f92dec84360aa54c347758eb1358a076d31">
+        sha1="8aa7b383a9396652c1f2b4b69318c5109564aa6d">
         <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_0d8378cf56e1bafdfc28e9e8ab69f7ddea0b1621/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/mai/AndroidStudioProjects/MovieWithFrag/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5f89cafe247fb2bf6015866ce4d3483e27bdfd1a/classes.dex" />
     </item>
 
 </items>

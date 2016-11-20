@@ -7,4 +7,14 @@
     <string name="sort_by">Sort by</string>
     <string name="title_activity_detailed">DetailedActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="pref_sortBy_label">Sort By</string>
+    <string name="pref_sortBy_label_pop">Popular</string>
+    <string name="pref_sortBy_label_tr">Top Rated</string>
+    <string name="pref_sortBy_label_fav">Favourite</string>
+    <string name="pref_sortBy_key" translatable="false">sorted</string>
+    <string name="pref_sortBy_pop" translatable="false">pop</string>
+    <string name="pref_sortBy_tr" translatable="false">tr</string>
+    <string name="pref_sortBy_fav" translatable="false">fav</string>
 </resources>

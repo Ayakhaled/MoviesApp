@@ -1,7 +1,9 @@
 package com.example.mai.moviewithfrag;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -54,54 +56,45 @@ public class MainActivityFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         new GetMovies().execute();
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
+        System.out.println("Aya From Fragment " + defSort);
+        if (defSort.equals("tr"))
+            topRated();
+        else
+            popular();
         return rootView;
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.popular, menu);
+        inflater.inflate(R.menu.set_menu, menu);
         MenuItem menuItem = menu.findItem(R.id.sort_by);
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.popular:
-                data.clear();
-                movieListTitle.setText(movieListsTitles[0]);
-                popular();
-                new GetMovies().execute();
-                System.out.println("Menu Item: pop");
-                return true;
-            case R.id.top_rated:
-                data.clear();
-                movieListTitle.setText(movieListsTitles[1]);
-                topRated();
-                new GetMovies().execute();
-                System.out.println("Menu Item: top rated");
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     private void popular(){
+        data.clear();
+        movieListTitle.setText(movieListsTitles[0]);
         url = "https://api.themoviedb.org/3/movie/popular?api_key=";
+        new GetMovies().execute();
+        System.out.println("Aya Menu Item: "+movieListsTitles[0]);
+
     }
 
     private void topRated(){
+        data.clear();
+        movieListTitle.setText(movieListsTitles[1]);
         url = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
+        new GetMovies().execute();
+        System.out.println("Aya Menu Item:"+movieListsTitles[1]);
     }
 
     private class GetMovies extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Please wait...");
-            progressDialog.setCancelable(true);
-            progressDialog.show();
         }
 
         @Override
@@ -163,9 +156,6 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            if (progressDialog.isShowing())
-                progressDialog.dismiss();
-
             moviesAdapter = new MoviesAdapter(data, getActivity());
             recyclerView.setAdapter(moviesAdapter);
         }
