@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Movies App</string>
     <string name="add_to_fav">Add to Favourite</string>
+    <string name="remove_from_fav">Remove from Favourite</string>
+    <string name="fav_btn_value">Add to Favourite</string>
     <string name="popular">Most popular</string>
     <string name="top_rated">Top rated</string>
     <string name="fav">Favourite</string>

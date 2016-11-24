@@ -1,7 +1,6 @@
 package com.example.mai.moviewithfrag;
 
 import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -14,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +32,6 @@ import java.util.ArrayList;
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 public class DetailedActivityFragment extends Fragment {
     private String TAG = DetailedActivity.class.getSimpleName();
-    private ProgressDialog progressDialog;
     private String id;
     private static String urlTrailer;
     private static String urlReview;
@@ -42,6 +41,9 @@ public class DetailedActivityFragment extends Fragment {
     private ArrayList<MovieReview> reviews;
     private RecyclerView trailerRecyclerView;
     private RecyclerView reviewRecyclerView;
+    private Button favBtn;
+    private Favourite favDB;
+    private MovieDetails movieDetails;
 
     public DetailedActivityFragment() {
     }
@@ -52,8 +54,10 @@ public class DetailedActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detailed, container, false);
 
+        favDB = new Favourite(getActivity());
+
         Intent intent = getActivity().getIntent();
-        MovieDetails movieDetails = (MovieDetails) intent.getSerializableExtra("MovieD");
+        movieDetails = (MovieDetails) intent.getSerializableExtra("MovieD");
 
         TextView title = (TextView) rootView.findViewById(R.id.movieTitle);
         title.setText(movieDetails.getTitle());
@@ -77,11 +81,13 @@ public class DetailedActivityFragment extends Fragment {
         TextView releaseDate = (TextView) rootView.findViewById(R.id.movieReleaseDate);
         releaseDate.setText(movieDetails.getReleaseDate());
 
-
         trailers = new ArrayList<>();
         trailerRecyclerView = (RecyclerView) rootView.findViewById(R.id.trailers_list);
         trailerRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         trailerRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        favBtn = (Button) rootView.findViewById(R.id.favBtn);
+
 
         new GetTrailers().execute();
 
@@ -89,10 +95,50 @@ public class DetailedActivityFragment extends Fragment {
         reviewRecyclerView = (RecyclerView) rootView.findViewById(R.id.review_list);
         reviewRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         reviewRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        if (movieDetails.getFavourite())
+            favBtn.setText(getString(R.string.remove_from_fav));
+        else
+            favBtn.setText(getString(R.string.add_to_fav));
 
         new GetReviews().execute();
+        
+        addToFavourite();
 
         return rootView;
+    }
+
+    public void addToFavourite(){
+        favBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (favBtn.getText().equals(getString(R.string.add_to_fav))){
+                    boolean isInserted = favDB.insertData(movieDetails.getTitle(), movieDetails.getPos(), movieDetails.getPlotSynopsis(), movieDetails.getRating(), movieDetails.getReleaseDate(), movieDetails.getMovieID());
+                    if(isInserted == true){
+                        Toast.makeText(getActivity(),"Added to favourite",Toast.LENGTH_LONG).show();
+                        favBtn.setText(getString(R.string.remove_from_fav));
+                        movieDetails.setFavourite(true);
+                    }
+                    else
+                        Toast.makeText(getActivity(),"Not Added",Toast.LENGTH_LONG).show();
+                }
+                else if(favBtn.getText().equals(getString(R.string.remove_from_fav))){
+                    removeFromFav();
+                }
+
+            }
+        });
+    }
+
+    public void removeFromFav(){
+        Integer deletedRows = favDB.removeFav(movieDetails.getMovieID());
+        if(deletedRows > 0){
+            Toast.makeText(getActivity(),"Removed",Toast.LENGTH_LONG).show();
+            favBtn.setText(getString(R.string.add_to_fav));
+            movieDetails.setFavourite(false);
+        }
+        else
+            Toast.makeText(getActivity(),"Not Removed",Toast.LENGTH_LONG).show();
+
     }
 
     private class GetTrailers extends AsyncTask<Void, Void, Void> {

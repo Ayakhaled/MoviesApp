@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/favBtn"
-                    android:text="Add to Favourite"/>
+                    android:text="@string/add_to_fav"/>
 
             </LinearLayout>
 
@@ -95,8 +95,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/review_list"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-
+            android:layout_height="wrap_content"
             tools:context=".DetailedView"/>
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>

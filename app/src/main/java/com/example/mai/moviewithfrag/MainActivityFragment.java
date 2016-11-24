@@ -2,8 +2,12 @@ package com.example.mai.moviewithfrag;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.AsyncTask;
+import android.os.Parcelable;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -30,13 +34,15 @@ import java.util.ArrayList;
  */
 public class MainActivityFragment extends Fragment {
     private String TAG = MainActivity.class.getSimpleName();
-    private ProgressDialog progressDialog;
     private String url = "https://api.themoviedb.org/3/movie/popular?api_key=";
     private TextView movieListTitle;
     private MoviesAdapter moviesAdapter;
     ArrayList<MovieDetails> data;
     private RecyclerView recyclerView;
     String[] movieListsTitles = {"Popular movies", "Top rated movies", "Favourited movies"};
+    private static Bundle mBundleRecyclerViewState;
+    private final String KEY_RECYCLER_STATE = "recycler_state";
+    private Favourite favDB;
 
     public MainActivityFragment() {
     }
@@ -45,26 +51,36 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+        favDB = new Favourite(getActivity());
+        ArrayList<MovieDetails> favouriteMovies = new ArrayList<>(getFav());
+
         movieListTitle = (TextView) rootView.findViewById(R.id.movieListTitle);
         movieListTitle.setText(movieListsTitles[0]);
-
         data = new ArrayList<MovieDetails>();
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        System.out.println(this);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        new GetMovies().execute();
+        return rootView;
+    }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
-        System.out.println("Aya From Fragment " + defSort);
         if (defSort.equals("tr"))
             topRated();
+        else if (defSort.equals("fav"))
+            viewFavourites();
         else
             popular();
-        return rootView;
+        if (mBundleRecyclerViewState != null) {
+            Parcelable listState = mBundleRecyclerViewState.getParcelable(KEY_RECYCLER_STATE);
+            recyclerView.getLayoutManager().onRestoreInstanceState(listState);
+        }
     }
 
     @Override
@@ -79,8 +95,6 @@ public class MainActivityFragment extends Fragment {
         movieListTitle.setText(movieListsTitles[0]);
         url = "https://api.themoviedb.org/3/movie/popular?api_key=";
         new GetMovies().execute();
-        System.out.println("Aya Menu Item: "+movieListsTitles[0]);
-
     }
 
     private void topRated(){
@@ -88,8 +102,59 @@ public class MainActivityFragment extends Fragment {
         movieListTitle.setText(movieListsTitles[1]);
         url = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
         new GetMovies().execute();
-        System.out.println("Aya Menu Item:"+movieListsTitles[1]);
     }
+
+    private void viewFavourites() {
+        data.clear();
+        data.addAll(getFav());
+        for (int j = 0; j < getFav().size(); j++) {
+            data.get(j).setFavourite(true);
+        }
+        moviesAdapter = new MoviesAdapter(data, getActivity());
+        recyclerView.setAdapter(moviesAdapter);
+        movieListTitle.setText(movieListsTitles[2]);
+    }
+
+    public ArrayList<MovieDetails> getFav(){
+        ArrayList<MovieDetails> favData = new ArrayList<>();
+        Cursor res = favDB.getAllFavourites();
+        while (res.moveToNext()) {
+            MovieDetails mDetails = new MovieDetails(res.getString(0), res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5));
+            favData.add(mDetails);
+        }
+        return favData;
+    }
+
+
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        mBundleRecyclerViewState = new Bundle();
+//        Parcelable listState = recyclerView.getLayoutManager().onSaveInstanceState();
+//        mBundleRecyclerViewState.putParcelable(KEY_RECYCLER_STATE, listState);
+//        System.out.println("LifeC:Pause");
+//    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        System.out.println("LifeC:Stop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        System.out.println("LifeC:Destroy");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        System.out.println("LifeC:Start");
+    }
+
+
 
     private class GetMovies extends AsyncTask<Void, Void, Void> {
         @Override
@@ -119,8 +184,13 @@ public class MainActivityFragment extends Fragment {
                         String title = moviesRes.getString("title");
                         String rating = moviesRes.getString("vote_average");
                         String id = moviesRes.getString("id");
+                        MovieDetails newMovDet = new MovieDetails(title, poster, overview, rating, release_date, id);
 
-                        data.add(new MovieDetails(title, poster, overview, rating, release_date, id));
+                        data.add(newMovDet);
+                        for (int j = 0; j < getFav().size(); j++) {
+                            if (id.equals(getFav().get(j).getMovieID()))
+                                newMovDet.setFavourite(true);
+                        }
                     }
 
                 }catch (final JSONException e) {
@@ -156,6 +226,7 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+
             moviesAdapter = new MoviesAdapter(data, getActivity());
             recyclerView.setAdapter(moviesAdapter);
         }

@@ -13,6 +13,8 @@ public class MovieDetails implements Serializable {
     private String plotSynopsis;
     private String rating;
     private String releaseDate;
+    private String pos;
+    private boolean favourite;
     private String movieID;
     private ArrayList<String> trailers;
 
@@ -25,8 +27,22 @@ public class MovieDetails implements Serializable {
         this.poster = imgURL+poster;
         this.plotSynopsis = plotSynopsis;
         this.rating = rating;
+        this.pos = poster;
         this.releaseDate = releaseDate;
         this.movieID = movieID;
+        favourite = false;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
+    }
+
+    public boolean getFavourite() {
+        return favourite;
+    }
+
+    public String getPos() {
+        return pos;
     }
 
     public void setTitle(String title) {
