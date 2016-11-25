@@ -43,7 +43,8 @@ public class MainActivityFragment extends Fragment {
     private static Bundle mBundleRecyclerViewState;
     private final String KEY_RECYCLER_STATE = "recycler_state";
     private Favourite favDB;
-
+    SharedPreferences sharedPreferences;
+    String defSort;
     public MainActivityFragment() {
     }
 
@@ -69,8 +70,8 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
         if (defSort.equals("tr"))
             topRated();
         else if (defSort.equals("fav"))
@@ -81,6 +82,8 @@ public class MainActivityFragment extends Fragment {
             Parcelable listState = mBundleRecyclerViewState.getParcelable(KEY_RECYCLER_STATE);
             recyclerView.getLayoutManager().onRestoreInstanceState(listState);
         }
+
+        restoreInstanceOnResume(defSort);
     }
 
     @Override
@@ -126,35 +129,40 @@ public class MainActivityFragment extends Fragment {
     }
 
 
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        mBundleRecyclerViewState = new Bundle();
-//        Parcelable listState = recyclerView.getLayoutManager().onSaveInstanceState();
-//        mBundleRecyclerViewState.putParcelable(KEY_RECYCLER_STATE, listState);
-//        System.out.println("LifeC:Pause");
-//    }
-
-
     @Override
-    public void onStop() {
-        super.onStop();
-        System.out.println("LifeC:Stop");
+    public void onPause() {
+        super.onPause();
+        saveInstanceOnPause();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("LifeC:Destroy");
+    public void saveInstanceOnPause(){
+        mBundleRecyclerViewState = new Bundle();
+        Parcelable listState = recyclerView.getLayoutManager().onSaveInstanceState();
+        mBundleRecyclerViewState.putParcelable(KEY_RECYCLER_STATE, listState);
+
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        System.out.println("LifeC:Start");
+    public void restoreInstanceOnResume(String pref){
+
+        if(pref.equals(defSort)) {
+            if (mBundleRecyclerViewState != null) {
+                Parcelable listState = mBundleRecyclerViewState.getParcelable(KEY_RECYCLER_STATE);
+                recyclerView.getLayoutManager().onRestoreInstanceState(listState);
+            }
+        }
+        else{
+            if (defSort.equals("tr"))
+                topRated();
+            else if (defSort.equals("fav"))
+                viewFavourites();
+            else
+                popular();
+            if (mBundleRecyclerViewState != null) {
+                Parcelable listState = mBundleRecyclerViewState.getParcelable(KEY_RECYCLER_STATE);
+                recyclerView.getLayoutManager().onRestoreInstanceState(listState);
+            }
+        }
     }
-
-
 
     private class GetMovies extends AsyncTask<Void, Void, Void> {
         @Override
