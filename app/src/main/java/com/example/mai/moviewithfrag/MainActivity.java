@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    boolean isTwoPane = false;
     String defSort = "pop";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
 
-        System.out.println("Aya: " +  defSort);
+        if (findViewById(R.id.detail_container) != null){
+            isTwoPane = true;
+        }
     }
 
     public String getDefSort(){
