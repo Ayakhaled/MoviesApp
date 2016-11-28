@@ -2,6 +2,9 @@ package com.example.mai.moviewithfrag;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,13 +54,26 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
                 .placeholder(R.color.colorAccent)
                 .into(holder.poster);
         holder.poster.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetailedActivity.class);
-                String title = movie.getTitle();
-                System.out.println("Title: "+title);
-                intent.putExtra("MovieD", movie);
-                context.startActivity(intent);
+                MainActivity mainActivity = new MainActivity();
+                if (mainActivity.twoPane()){
+//                    DetailedActivityFragment detailedActivityFragment = new DetailedActivityFragment();
+//                    Bundle bundle = new Bundle();
+//                    bundle.putBundle("MovieD", movie);
+//                    detailedActivityFragment.setFragmentValues(movie);
+//                    mainActivity.switchContent(R.id.detail_container, detailedActivityFragment);
+//                    ((MainActivity) context).getSupportFragmentManager()
+//                            .beginTransaction()
+//                            .replace(R.id.detail_container, detailedActivityFragment)
+//                            .commit();
+                }
+                else {
+                    Intent intent = new Intent(context, DetailedActivity.class);
+                    intent.putExtra("MovieD", movie);
+                    context.startActivity(intent);
+                }
             }
         });
     }
