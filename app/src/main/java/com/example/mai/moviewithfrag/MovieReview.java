@@ -1,7 +1,7 @@
 package com.example.mai.moviewithfrag;
 
 /**
- * Created by mai on 18/11/16.
+ * Created by aya on 18/11/16.
  */
 
 public class MovieReview {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by mai on 17/10/16.
+ * Created by aya on 17/10/16.
  */
 public class MovieDetails implements Serializable {
     private final String imgURL = "http://image.tmdb.org/t/p/w185/";

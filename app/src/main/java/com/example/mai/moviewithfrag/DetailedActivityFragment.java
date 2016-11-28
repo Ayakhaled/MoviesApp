@@ -44,6 +44,7 @@ public class DetailedActivityFragment extends Fragment {
     private Button favBtn;
     private Favourite favDB;
     private MovieDetails movieDetails;
+    public static boolean updateFav = false;
 
     public DetailedActivityFragment() {
     }
@@ -56,8 +57,17 @@ public class DetailedActivityFragment extends Fragment {
 
         favDB = new Favourite(getActivity());
 
+        movieDetails = new MovieDetails();
         Intent intent = getActivity().getIntent();
-        movieDetails = (MovieDetails) intent.getSerializableExtra("MovieD");
+        Bundle bundle = new Bundle();
+
+        if (MainActivity.isTwoPane)
+            bundle = getArguments();
+
+        else
+            bundle = intent.getExtras();
+
+        movieDetails = (MovieDetails) bundle.getSerializable("MovieD");
 
         TextView title = (TextView) rootView.findViewById(R.id.movieTitle);
         title.setText(movieDetails.getTitle());
@@ -101,7 +111,7 @@ public class DetailedActivityFragment extends Fragment {
             favBtn.setText(getString(R.string.add_to_fav));
 
         new GetReviews().execute();
-        
+
         addToFavourite();
 
         return rootView;
@@ -135,6 +145,7 @@ public class DetailedActivityFragment extends Fragment {
             Toast.makeText(getActivity(),"Removed",Toast.LENGTH_LONG).show();
             favBtn.setText(getString(R.string.add_to_fav));
             movieDetails.setFavourite(false);
+            updateFav = true;
         }
         else
             Toast.makeText(getActivity(),"Not Removed",Toast.LENGTH_LONG).show();
@@ -184,12 +195,12 @@ public class DetailedActivityFragment extends Fragment {
 
                 }
             } else {
-                Log.e(TAG, "Couldn't get json from server.");
+                Log.e(TAG, "Couldn't get data from server.");
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(getActivity().getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
+                                "Couldn't get json from server.",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }
@@ -251,12 +262,12 @@ public class DetailedActivityFragment extends Fragment {
 
                 }
             } else {
-                Log.e(TAG, "Couldn't get json from server.");
+                Log.e(TAG, "Couldn't get data from server.");
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(getActivity().getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
+                                "Couldn't get json from server.",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }

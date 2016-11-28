@@ -82,7 +82,6 @@ public class MainActivityFragment extends Fragment {
             Parcelable listState = mBundleRecyclerViewState.getParcelable(KEY_RECYCLER_STATE);
             recyclerView.getLayoutManager().onRestoreInstanceState(listState);
         }
-
         restoreInstanceOnResume(defSort);
     }
 
@@ -90,7 +89,6 @@ public class MainActivityFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.set_menu, menu);
         MenuItem menuItem = menu.findItem(R.id.sort_by);
-
     }
 
     private void popular(){
@@ -107,7 +105,7 @@ public class MainActivityFragment extends Fragment {
         new GetMovies().execute();
     }
 
-    private void viewFavourites() {
+    public void viewFavourites() {
         data.clear();
         data.addAll(getFav());
         for (int j = 0; j < getFav().size(); j++) {
@@ -215,12 +213,12 @@ public class MainActivityFragment extends Fragment {
 
                 }
             } else {
-                Log.e(TAG, "Couldn't get json from server.");
+                Log.e(TAG, "Couldn't get data from server.");
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(getActivity().getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
+                                "Couldn't get json from server.",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }
@@ -234,7 +232,6 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
             moviesAdapter = new MoviesAdapter(data, getActivity());
             recyclerView.setAdapter(moviesAdapter);
         }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,12 +19,11 @@ import java.util.ArrayList;
 
 
 /**
- * Created by mai on 17/10/16.
+ * Created by aya on 17/10/16.
  */
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolder> {
     private ArrayList<MovieDetails> data;
-    private LayoutInflater mInflater;
     private Context context;
 
     public MoviesAdapter(ArrayList<MovieDetails> data, Context context) {
@@ -58,13 +58,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
             @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onClick(View v) {
-                MainActivity mainActivity = new MainActivity();
-                if (mainActivity.twoPane()){
+                if (MainActivity.isTwoPane){
                     DetailedActivityFragment detF = new DetailedActivityFragment();
                     Bundle args = new Bundle();
                     args.putSerializable("MovieD", movie);
                     detF.setArguments(args);
-                    System.out.println("Aya Two pane");
 
                     ((MainActivity) context).getFragmentManager().beginTransaction()
                             .replace(R.id.det_cont,detF)
@@ -72,7 +70,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
                 }
                 else {
                     Intent intent = new Intent(context, DetailedActivity.class);
-                    intent.putExtra("MovieD", movie);
+                    Bundle args = new Bundle();
+                    args.putSerializable("MovieD", movie);
+                    intent.putExtras(args);
                     context.startActivity(intent);
                 }
             }

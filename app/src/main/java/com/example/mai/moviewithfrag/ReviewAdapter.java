@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by mai on 18/11/16.
+ * Created by aya on 18/11/16.
  */
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewsHolder> {

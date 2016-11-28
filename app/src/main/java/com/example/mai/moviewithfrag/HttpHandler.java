@@ -1,7 +1,7 @@
 package com.example.mai.moviewithfrag;
 
 /**
- * Created by mai on 24/10/16.
+ * Created by aya on 24/10/16.
  */
 
 
@@ -45,13 +45,13 @@ public class HttpHandler {
     }
 
     private String convertStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder stringBuilder = new StringBuilder();
 
         String line;
         try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line).append('\n');
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line).append('\n');
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,6 +62,6 @@ public class HttpHandler {
                 e.printStackTrace();
             }
         }
-        return sb.toString();
+        return stringBuilder.toString();
     }
 }
