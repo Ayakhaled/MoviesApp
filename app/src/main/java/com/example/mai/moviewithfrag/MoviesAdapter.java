@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -59,15 +60,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
             public void onClick(View v) {
                 MainActivity mainActivity = new MainActivity();
                 if (mainActivity.twoPane()){
-//                    DetailedActivityFragment detailedActivityFragment = new DetailedActivityFragment();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putBundle("MovieD", movie);
-//                    detailedActivityFragment.setFragmentValues(movie);
-//                    mainActivity.switchContent(R.id.detail_container, detailedActivityFragment);
-//                    ((MainActivity) context).getSupportFragmentManager()
-//                            .beginTransaction()
-//                            .replace(R.id.detail_container, detailedActivityFragment)
-//                            .commit();
+                    DetailedActivityFragment detF = new DetailedActivityFragment();
+                    Bundle args = new Bundle();
+                    args.putSerializable("MovieD", movie);
+                    detF.setArguments(args);
+                    System.out.println("Aya Two pane");
+
+                    ((MainActivity) context).getFragmentManager().beginTransaction()
+                            .replace(R.id.det_cont,detF)
+                            .commit();
                 }
                 else {
                     Intent intent = new Intent(context, DetailedActivity.class);

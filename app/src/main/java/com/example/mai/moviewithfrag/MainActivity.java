@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -26,8 +27,13 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         defSort = sharedPreferences.getString(getString(R.string.pref_sortBy_key), getString(R.string.pref_sortBy_pop));
 
-        if (findViewById(R.id.detail_container) != null){
+        if (findViewById(R.id.det_cont) != null){
+            System.out.println("Aya detailCont is not empty");
             isTwoPane = true;
+        }
+        else {
+            isTwoPane = false;
+            System.out.println("Aya detailCont is empty");
         }
     }
 
