@@ -3,15 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_359beb247cb443c0e4e10eb45d9c47a8b625ed64.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Aya\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
         jumboMode="false"
         optimize="true"
@@ -57,39 +48,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_9500ba92212b05964fe46a6e1165473088851039.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.3"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
         <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_954f7aa2928c3c6565fcb7c3024f51b716e9c1e5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_0f4d4a9e9fc0de4e6b7a67dee4afcb54577ad305.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_1dbe53448ec9d994dfd77c6196074dc99a8d5e1c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -120,6 +84,60 @@
     </item>
     <item
         is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_8fe2c12ae31f880693368523982b05ff50bbe1dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_3d5d9babb4f993d7e36a50b42191e07ace2aafa5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_359beb247cb443c0e4e10eb45d9c47a8b625ed64.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_9500ba92212b05964fe46a6e1165473088851039.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_0f4d4a9e9fc0de4e6b7a67dee4afcb54577ad305.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_1dbe53448ec9d994dfd77c6196074dc99a8d5e1c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -144,24 +162,6 @@
         revision="24.0.3"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_f9afb1099e12f477db77656bd5c47b95a6996e05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_8fe2c12ae31f880693368523982b05ff50bbe1dc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\MoviesApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="D:\MoviesApp\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_3d5d9babb4f993d7e36a50b42191e07ace2aafa5.jar" />
     </item>
     <item
         is-multidex="false"

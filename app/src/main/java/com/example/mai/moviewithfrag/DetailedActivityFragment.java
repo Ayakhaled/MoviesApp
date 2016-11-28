@@ -83,7 +83,7 @@ public class DetailedActivityFragment extends Fragment {
         urlReview = "http://api.themoviedb.org/3/movie/"+id+"/reviews?api_key=";
 
         TextView plotSynopsis = (TextView) rootView.findViewById(R.id.plotSynopsis);
-        plotSynopsis.setText(movieDetails.getPlotSynopsis());
+        plotSynopsis.setText("Overview: "+movieDetails.getPlotSynopsis());
 
         TextView rating = (TextView) rootView.findViewById(R.id.movieRating);
         rating.setText(movieDetails.getRating());
