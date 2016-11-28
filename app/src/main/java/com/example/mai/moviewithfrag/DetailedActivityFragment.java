@@ -86,7 +86,7 @@ public class DetailedActivityFragment extends Fragment {
         plotSynopsis.setText("Overview: "+movieDetails.getPlotSynopsis());
 
         TextView rating = (TextView) rootView.findViewById(R.id.movieRating);
-        rating.setText(movieDetails.getRating());
+        rating.setText(movieDetails.getRating() +"/10");
 
         TextView releaseDate = (TextView) rootView.findViewById(R.id.movieReleaseDate);
         releaseDate.setText(movieDetails.getReleaseDate());
